@@ -91,6 +91,10 @@ textarea {
     resize: vertical;
 }
 
+a {
+   outline: 0;
+}
+
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
@@ -109,6 +113,8 @@ textarea {
 
 [class*="fa-"] {
   font-size: 3em;
+  position: relative;
+  top: 10px;
 }
 
 * { 
@@ -238,11 +244,8 @@ h1 {
 }
 
 .robotinfo {
-    bottom: 20px;
     font-family: "droid",sans-serif;
     font-size: 1.5em;
-    left: 100px;
-    position: absolute;
 }
 
 .fp-tableCell {
