@@ -1,27 +1,54 @@
 // set up ======================================================================
-var express = require('express');
-var app = express(); 						// create our app w/ express
-var mongoose = require('mongoose'); 				// mongoose for mongodb
-var port = process.env.PORT || 8080; 				// set the port
-var database = require('./config/database'); 			// load the database config
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+var express = require( 'express' );
+var compression = require( 'compression' );
+
+
+
+var morgan = require( 'morgan' );
+var bodyParser = require( 'body-parser' );
+var methodOverride = require( 'method-override' );
+var figlet = require( 'figlet' );
+
+// print image =================================================================
+
+var figletConfig = {
+    font: 'Standard',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+};
+
+figlet.text('==:: R2D9 ::==', figletConfig, function(err, data) {
+    console.log(data);
+});
 
 // configuration ===============================================================
-mongoose.connect(database.localUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
+var app = express(); 
+var port = process.env.PORT || 8080;
+var oneDay = 84600000;
+app.use( '/js', express.static( __dirname + '/public/js', { maxAge: oneDay }) );
+app.use( '/img', express.static( __dirname + '/public/img', { maxAge: oneDay }) );
+app.use( '/font', express.static( __dirname + '/public/font', { maxAge: oneDay }) );
+app.use( '/css', express.static( __dirname + '/public/css', { maxAge: oneDay }) );
 
-app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
-app.use(morgan('dev')); // log every request to the console
-app.use(bodyParser.urlencoded({'extended': 'true'})); // parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); // parse application/json
-app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
-app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
-
+// log every request to the console
+app.use( morgan( 'dev' ) );
+// parse application/x-www-form-urlencoded
+app.use( bodyParser.urlencoded( { 'extended': 'true' } ) );
+// parse application/json
+app.use( bodyParser.json() );
+// parse application/vnd.api+json as json
+app.use( bodyParser.json( { type: 'application/vnd.api+json' } ) );
+// override with the X-HTTP-Method-Override header in the request
+app.use( methodOverride( 'X-HTTP-Method-Override' ) );
+// compress responses
+app.use( compression() );
 
 // routes ======================================================================
 require('./app/routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
-console.log("App listening on port " + port);
+
+
+
+

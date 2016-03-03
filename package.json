@@ -1,14 +1,31 @@
 {
-  "name"         : "astromech_ui",
-  "version"      : "0.0.1",
-  "description"  : "UI for my Astromech Droid",
-  "main"         : "server.js",
-  "author"       : "HablijacK",
-  "dependencies" : {
-    "express"         : "~4.13.4",
-    "mongoose"        : "~4.4.3",
-    "morgan"          : "~1.6.1",
-    "body-parser"     : "~1.15.0",
-    "method-override" : "~2.3.5"
+  "name": "astromech_ui",
+  "version": "1.0.0",
+  "description": "R2D9 UI",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hablijack/astromech_ui.git"
+  },
+  "keywords": [
+    "astromech-ui"
+  ],
+  "author": "hablijack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hablijack/astromech_ui/issues"
+  },
+  "homepage": "https://github.com/hablijack/astromech_ui#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "express": "^4.13.4",
+    "figlet": "^1.1.1",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0"
   }
 }
