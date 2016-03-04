@@ -1,11 +1,11 @@
 @font-face { 
 	font-family: "droid"; 
-	src: url("/home/christoph/Workspace/astromech_ui/webui_mock/font/droid.TTF"); 
+	src: url("/font/droid.TTF"); 
 }
 
 @font-face { 
 	font-family: "starjout"; 
-	src: url("/home/christoph/Workspace/astromech_ui/webui_mock/font/Starjout.ttf"); 
+	src: url("/font/Starjout.ttf"); 
 }
 
 
