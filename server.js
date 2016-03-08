@@ -1,24 +1,25 @@
 // set up ======================================================================
 var express = require( 'express' );
 var compression = require( 'compression' );
-
-
-
 var morgan = require( 'morgan' );
 var bodyParser = require( 'body-parser' );
 var methodOverride = require( 'method-override' );
 var figlet = require( 'figlet' );
 
+// own modules: 
+var soundboard = require( './app/soundboard.js');
+var recorder = require( './app/recorder.js' );
+
 // print image =================================================================
 
 var figletConfig = {
-    font: 'Standard',
-    horizontalLayout: 'default',
-    verticalLayout: 'default'
+	font: 'Standard',
+	horizontalLayout: 'default',
+	verticalLayout: 'default'
 };
 
-figlet.text('==:: R2D9 ::==', figletConfig, function(err, data) {
-    console.log(data);
+figlet.text( '==:: R2B9 ::==', figletConfig, function(err, data) {
+	console.log(data);
 });
 
 // configuration ===============================================================
@@ -48,6 +49,10 @@ require('./app/routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
+
+soundboard.initsound();
+
+recorder().record(2000);
 
 
 
