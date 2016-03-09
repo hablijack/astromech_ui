@@ -50,7 +50,7 @@ require('./app/routes.js')(app);
 // listen (start app with node server.js) ======================================
 app.listen(port);
 
-soundboard.initsound();
+soundboard.play( 'initialize' );
 
 recorder().record(2000);
 
