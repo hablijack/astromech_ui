@@ -7,13 +7,14 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="favicon" href="/img/favicon.ico">
 		<!-- Place favicon.ico in the root directory -->
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/jquery.fullpage.min.css" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/slider.css">
 
 		<script src="js/vendor/nipplejs.min.js"></script>
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -32,56 +33,108 @@
 				
 					<div class="slide" data-anchor="home">
 						<h1>R2B9</h1>
-						<img src="img/logo.png">
-						<span class="robotinfo">Sinnloser Droidenetext</span>
+						<img class="homepagelogo" src="img/logo.png">
+						
+						<span class="robotinfo">Homepage Droidenetext</span>
+						<div class="" style="text-align: left;">
+							<span class="control_description">LCD Display-Text: </span>
+							<textarea id="lcd_display" cols="16" rows="2"></textarea>
+						</div>
+						<div class="" style="text-align: left;">
+							<span class="control_description">LED Ring-Farbe: </span>
+							<input type='color' name='ringcolor' id="ringcolor" value='#3355cc' />
+						</div>
 					</div>
-					<div class="slide" data-anchor="camera">
-						<h1>Kamera</h1>
-						<span class="robotinfo">Ein Anderer Droidenetext</span>
+					<div class="slide" data-anchor="control">
+						<div id="movement_joystick_zone">
+							<span class="control_description">Körper</span>
+						</div>
+						<div id="eye_joystick_zone">
+							<span class="control_description">Auge</span>
+						</div>
 					</div>
-					<div class="slide"   data-anchor="control">
-						<h1>Steuerung</h1>
-						<span class="robotinfo">Nochmal ein Droidentext</span>
+					<div class="slide" data-anchor="sound">
+						<h1>Soundboard</h1>
+						<div id="soundboard">
+							<button class="soundbtn" value="initialize">initialize</button>
+							<button class="soundbtn" value="alarm">alarm</button>
+							<button class="soundbtn" value="alarm_reverb">alarm_reverb</button>
+							<button class="soundbtn" value="angry">angry</button>
+							<button class="soundbtn" value="behind">behind</button>
+							<button class="soundbtn" value="busy_busy_busy">Busy Busy</button>
+							<button class="soundbtn" value="caution">caution</button>
+							<button class="soundbtn" value="chat_reverb">chat_reverb</button>
+							<button class="soundbtn" value="chatter_raz">chatter_raz</button>
+							<button class="soundbtn" value="chuckle_raz">chuckle_raz</button>
+							<button class="soundbtn" value="chunter">chunter</button>
+							<button class="soundbtn" value="clanger2_reverb">clanger2_reverb</button>
+							<button class="soundbtn" value="cuckoo">cuckoo</button>
+							<button class="soundbtn" value="ditty">ditty</button>
+							<button class="soundbtn" value="error">error</button>
+							<button class="soundbtn" value="fast_chat">fast_chat</button>
+							<button class="soundbtn" value="fast_talk">fast_talk</button>
+							<button class="soundbtn" value="info">info</button>
+							<button class="soundbtn" value="lockout_reverb">lockout_reverb</button>
+							<button class="soundbtn" value="plea">plea</button>
+							<button class="soundbtn" value="process">process</button>
+							<button class="soundbtn" value="process2">process2</button>
+							<button class="soundbtn" value="process4">process4</button>
+							<button class="soundbtn" value="processing_holo">processing_holo</button>
+							<button class="soundbtn" value="raz">raz</button>
+							<button class="soundbtn" value="short_circuit">short_circuit</button>
+							<button class="soundbtn" value="skipping_raz">skipping_raz</button>
+							<button class="soundbtn" value="surprise">surprise</button>
+							<button class="soundbtn" value="tum_de_dum">tum_de_dum</button>
+							<button class="soundbtn" value="tuneful_chatter">tuneful_chatter</button>
+							<button class="soundbtn" value="whistle">whistle</button>
+							<button class="soundbtn" value="whistling_process">whistling_process</button>
+							<button class="soundbtn" value="wolfwhistle">wolfwhistle</button>
+							<button class="soundbtn" value="worry">worry</button>
+							<button class="soundbtn" value="worry_2">worry_2</button>
+							<button class="soundbtn" value="wow">wow</button>
+							<button class="soundbtn" value="zaap">zaap</button>
+						</div>
+						<span class="robotinfo">Soundboard Droidentext</span>
 					</div>
-					<div class="slide" data-anchor="settings">
-						<h1>Einstellungen</h1>
-						<span class="robotinfo">Einstellungs Droidentext</span>
+					<div class="slide" data-anchor="microphone">
+						<h1>Sprachnachricht</h1>
+						<span class="robotinfo">Sprachnachricht Droidentext</span>
 					</div>
-					
-					<div id="leftcorner_top"></div>
-					<div id="rightcorner_top"></div>
-					<div id="leftcorner_bottom"></div>
-					<div id="rightcorner_bottom"></div>
-					
-					<nav>
-						<ul class="nav">
-							<li>
-								<a href="#action/home">
-									<span class="fa fa-home icon-home"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#action/camera">
-									<span class="fa fa-camera "></span>
-								</a>
-							</li>
-							<li>
-								<a href="#action/control">
-									<span class="fa fa-arrows"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#action/settings">
-									<span class="fa fa-cog"></span>
-								</a>
-							</li>
-						</ul>
-					</nav>​
-					
-					<div id="movement_joystick_zone"></div>
-					
+
 				</div>
 			</div>
 		</div>
+		<div id="leftcorner_top"></div>
+		<div id="rightcorner_top"></div>
+		<div id="leftcorner_bottom"></div>
+		<div id="rightcorner_bottom"></div>
+		
+		<nav>
+			<input id="head_movement_control" type="range">
+			<ul class="nav">
+				<li>
+					<a href="#action/home">
+						<span class="fa fa-home icon-home"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#action/control">
+						<span class="fa fa-arrows"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#action/sound">
+						<span class="fa fa-volume-up"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#action/microphone">
+						<span class="fa fa-microphone"></span>
+					</a>
+				</li>
+			</ul>
+		</nav>​
+
+		<img id="camera" src="/img/bg_picture.jpg">
 	</body>
 </html>

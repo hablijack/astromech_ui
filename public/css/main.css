@@ -1,13 +1,23 @@
 @font-face { 
 	font-family: "droid"; 
-	src: url("/home/christoph/Workspace/astromech_ui/webui_mock/font/droid.TTF"); 
+	src: url("/font/droid.TTF"); 
 }
 
 @font-face { 
 	font-family: "starjout"; 
-	src: url("/home/christoph/Workspace/astromech_ui/webui_mock/font/Starjout.ttf"); 
+	src: url("/font/Starjout.ttf"); 
 }
 
+@font-face { 
+	font-family: "starjhol"; 
+	src: url("/font/Starjhol.ttf"); 
+}
+
+@font-face {
+	font-family: 'lcdbold';
+	src: url('/font/LCDBOLD.eot');
+	src: local('/font/LCDBOLD'), url('/font/LCDBOLD.woff') format('woff'), url('/font/LCDBOLD.ttf') format('truetype');
+}
 
 /*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
@@ -110,14 +120,55 @@ a {
    Author's custom styles
    ========================================================================== */
 
- #movement_joystick_zone {
-            position: absolute;
-            height: 100%;
-            width: 20%;
-            top: 0;
-            left: 0;
-            z-index: 4000;
-        }
+
+#head_movement_control {
+	display: none;
+}
+
+.homepagelogo {
+	float: left;
+	margin-left: 50px;
+}
+
+#camera {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+	width: 100%;
+    z-index: -1;
+	display: none;
+}
+
+#movement_joystick_zone {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+	float: left;
+	background: hsla(0, 100%, 50%, 0.1);
+	display: none;
+}
+
+#eye_joystick_zone {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+	float: right;
+	background: hsla(110, 100%, 50%, 0.1);
+	display: none;
+}
+
+.control_description {
+  font-family: 'starjhol', sans-serif;
+ font-size: 2em;
+
+}
 
 
 [class*="fa-"] {
@@ -135,19 +186,24 @@ a {
 }
 
 html {
-  background: #f7f7f7 url(http://css-tricks.com/examples/RoundButtons/images/bg.png) repeat center top;
+  background: #f7f7f7 url(/img/round-btn.png) repeat center top;
+}
+
+nav {
+	position: absolute;
+	bottom: 62px;
+	width: 100%;
+	z-index: 200;
+	text-align: center;
 }
 
 .nav {
   list-style: none;
   text-align: center;
-  position: absolute;
-  bottom: 35px;
 margin-left: auto;
 margin-right: auto;
-left: 0;
-right: 0;
 z-index: 200;
+width: 50%;
 }
 
 .nav li {
@@ -178,7 +234,7 @@ z-index: 200;
   background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
   background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
   color: #a7a7a7;
-  margin: 36px;
+  margin: 0 25px 0 37px;
   width: 144px;
   height: 144px;
   position: relative;
@@ -204,35 +260,56 @@ z-index: 200;
   box-shadow: inset 0px 8px 48px #ddd;
 }
 
+.nav a:hover {
+  text-decoration: none;
+  color: #555;
+  background-color: #f5f5f5;
+}
+
 .nav a:active {
   box-shadow: 0px 3px 4px #aaa inset, 0px 2px 3px #fff;
 }
 
 
 
+#lcd_display {
+	outline: none;
+	resize: none;
+	overflow: auto;
+	background-color: #b0db66;
+	border: 10px solid black;
+	box-shadow: inset 0px 0px 10px #000000;
+	padding: 3px;
+	font-family: lcdbold;
+	
+}
 
 
+#soundboard {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.soundbtn {
+	background-color: #00236d;
+	border: medium none;
+	box-shadow: 10px 10px 0 #28388c inset;
+	border-radius: 25px;
+	color: white;
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	width: 120px;
+	height: 80px;
+}
 
+.soundbtn:hover {
+	cursor: pointer;
+	background-color: #28388c;
+	box-shadow: 10px 10px 0 #00236d inset;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* R2 HEX Color blue: #00236D" */
 
 h1 {
   font-family: 'starjout', sans-serif;
@@ -246,7 +323,7 @@ h1 {
 }
 
 #fullpage .section {
-  border: 20px solid #00236D;
+	border: 20px solid #00236d;
   -moz-box-shadow:    inset 0 0 25px #000000;
    -webkit-box-shadow: inset 0 0 25px #000000;
    box-shadow:         inset 0 0 25px #000000;
@@ -281,6 +358,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
+	z-index: 10;
 }
 
 #rightcorner_top {
@@ -292,6 +370,7 @@ h1 {
   position: absolute;
   top: 0;
   right: 0;
+	z-index: 10;
 }
 
 #leftcorner_bottom {
@@ -303,6 +382,7 @@ h1 {
   position: absolute;
   bottom: 0;
   left: 0;
+	z-index: 10;
 }
 
 #rightcorner_bottom {
@@ -314,17 +394,17 @@ h1 {
   position: absolute;
   bottom: 0;
   right: 0;
+	z-index: 10;
 }
 
-.nav a:hover {
-  text-decoration: none;
-  color: #555;
-  background: #f5f5f5;
-}​
 
-
-.nav a:hover {
-  text-decoration: none;
-  color: #555;
-  background: #f5f5f5;
-}​
+#ringcolor {
+    background-color: #ffffff;
+    border: 1px solid black;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border-radius: 4px;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 4px 6px;
+}

@@ -1,0 +1,15 @@
+var player = require( 'play-sound' )( opts = {} );
+
+function play( filename ) {
+	player.play(filename, function(err){
+		if(err != "null") {
+			console.log("... MP3 abgespielt.");
+		} else {
+			console.error(err);
+		}
+	});
+}
+
+module.exports = {
+	play
+};
