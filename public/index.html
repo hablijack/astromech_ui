@@ -14,7 +14,6 @@
 		<link rel="stylesheet" href="css/jquery.fullpage.min.css" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/slider.css">
 
 		<script src="js/vendor/nipplejs.min.js"></script>
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -36,14 +35,7 @@
 						<img class="homepagelogo" src="img/logo.png">
 						
 						<span class="robotinfo">Homepage Droidenetext</span>
-						<div class="" style="text-align: left;">
-							<span class="control_description">LCD Display-Text: </span>
-							<textarea id="lcd_display" cols="16" rows="2"></textarea>
-						</div>
-						<div class="" style="text-align: left;">
-							<span class="control_description">LED Ring-Farbe: </span>
-							<input type='color' name='ringcolor' id="ringcolor" value='#3355cc' />
-						</div>
+						
 					</div>
 					<div class="slide" data-anchor="control">
 						<div id="movement_joystick_zone">
@@ -97,8 +89,18 @@
 						<span class="robotinfo">Soundboard Droidentext</span>
 					</div>
 					<div class="slide" data-anchor="microphone">
-						<h1>Sprachnachricht</h1>
-						<span class="robotinfo">Sprachnachricht Droidentext</span>
+						<h1>Einstellungen</h1>
+						<span class="robotinfo">Einstellungen Droidentext</span>
+
+						<div class="">
+							<div class="control_description">LCD Display-Text: </div>
+							<textarea id="lcd_display" cols="16" rows="2">   = R2D9 =
+Astromech Droide</textarea>
+						</div>
+						<div class="">
+							<div class="control_description">LED Ring-Farbe: </div>
+							<input type='color' name='ringcolor' id="ringcolor" value='#3355cc' />
+						</div>
 					</div>
 
 				</div>
@@ -110,7 +112,12 @@
 		<div id="rightcorner_bottom"></div>
 		
 		<nav>
-			<input id="head_movement_control" type="range">
+
+			<div id="head_movement_control">
+				<button>&lt;</button>
+				<button>&gt;</button>
+			</div>
+
 			<ul class="nav">
 				<li>
 					<a href="#action/home">
@@ -129,7 +136,7 @@
 				</li>
 				<li>
 					<a href="#action/microphone">
-						<span class="fa fa-microphone"></span>
+						<span class="fa fa-cog"></span>
 					</a>
 				</li>
 			</ul>

@@ -28,6 +28,6 @@
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",
     "node-arecord": "0.0.2",
-    "play-sound": "0.0.7"
+    "play-sound": "0.0.8"
   }
 }
